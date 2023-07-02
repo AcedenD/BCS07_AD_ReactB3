@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ProductList from "./ProductList";
 import Modal from "./Modal";
+import { NavLink, Outlet } from "react-router-dom";
+import ShoesCart from "./ShoesCart";
 
 export default class ShoesStore extends Component {
   shoeArr = [
@@ -172,11 +174,30 @@ export default class ShoesStore extends Component {
     return (
       <div className="bg-light">
         <Modal content={this.state.productDetail} />
-        <h1 className="text-center">Shoe Shop</h1>
-        <ProductList
-          productsData={this.shoeArr}
-          setStateModal={this.setStateModal}
-        ></ProductList>
+        <div className="container">
+          <nav className="navbar bg-body-tertiary">
+            <div className="container-fluid">
+              <a className="navbar-brand fs-1 text-center" href="/">
+                Shoe Shops
+              </a>
+              {/* <NavLink className="nav-link" to="/cart">
+                <i className="fa fa-cart-shopping fs-3"></i>
+              </NavLink> */}
+            </div>
+          </nav>
+        </div>
+
+        <div className="row">
+          <div className="col-3">
+            <ShoesCart productsData={this.shoeArr} />
+          </div>
+          <div className="col-9">
+            <ProductList
+              productsData={this.shoeArr}
+              setStateModal={this.setStateModal}
+            ></ProductList>
+          </div>
+        </div>
       </div>
     );
   }

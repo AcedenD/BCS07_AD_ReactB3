@@ -17,11 +17,19 @@ export default class ProductItem extends Component {
                 onClick={() => {
                   setStateModal(item.id);
                 }}
-                className="btn btn-primary"
+                className="btn btn-primary m-2"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
               >
                 View More Detail
+              </button>
+              <button
+                onClick={() => {
+                  alert(`Adding: ${item.name}`);
+                }}
+                className="btn btn-success"
+              >
+                <span className="fa fa-plus"></span>
               </button>
             </div>
           </div>
